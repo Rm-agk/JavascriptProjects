@@ -1,0 +1,33 @@
+let tool = 0
+// Press A to choose a number 
+// 1=Rock
+// 2= Paper
+// 3= Scissors
+input.onButtonPressed(Button.A, function () {
+    tool = randint(1, 3)
+    basic.pause(100)
+    basic.showNumber(randint(1, 3))
+})
+// Press B = Tells you if won by showing a tick and a loss by showing an X followed by text
+input.onButtonPressed(Button.B, function () {
+    tool = randint(0, 2)
+    if (tool == 1) {
+        basic.showLeds(`
+            . . . . .
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            `)
+        basic.showString("You win")
+    } else if (tool == 2) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.showString("You lose")
+    }
+})
